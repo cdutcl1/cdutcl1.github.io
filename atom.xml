@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cdutcl.xyz/"/>
-  <updated>2020-02-25T07:57:58.610Z</updated>
+  <updated>2020-02-26T12:26:07.437Z</updated>
   <id>http://cdutcl.xyz/</id>
   
   <author>
@@ -17,25 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo Markdown</title>
-    <link href="http://cdutcl.xyz/2020/02/25/hexo-markdown/"/>
-    <id>http://cdutcl.xyz/2020/02/25/hexo-markdown/</id>
-    <published>2020-02-25T07:50:55.000Z</published>
-    <updated>2020-02-25T07:57:58.610Z</updated>
+    <title>Xilinx下载器驱动问题</title>
+    <link href="http://cdutcl.xyz/2020/02/26/xilinx-driver/"/>
+    <id>http://cdutcl.xyz/2020/02/26/xilinx-driver/</id>
+    <published>2020-02-26T10:52:09.000Z</published>
+    <updated>2020-02-26T12:26:07.437Z</updated>
     
-    <content type="html"><![CDATA[<p>这是文章的摘要</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>Win10系统下，安装多个版本Vivado后，Xilinx DLC9驱动不识别问题。</p><h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>刚开始，电脑上安装了Vivado2015.4和ISE14.7两个软件，使用一切正常。后续有了升级Vivado版本的需求，又在电脑上装了2017.4版本的Vivado。<br>装好了2017.4的版本后，当插上DLC9下载后，状态灯成暗红色（原来正常情况下应该亮红色），开发板通电后，DLC9的状态灯没有变化，依然是暗红色（正常应该变为绿色）。<br><img src="image01.png" alt="初始状态"></p><p>然后打开Vivado2017.4软件，进入Hardware Manager，然后点击Auto Connect后，从系统音判断，下载器出现了几次弹出操作，然后DLC9的灯状态变成绿色了，从设备管理器看驱动状态，好像也正常了。<br><img src="image02.png" alt="扫链状态"></p><p>但事实上，还是扫不到器件，报错信息如下：<br><img src="image03.png" alt="报错信息"></p><p>尝试换成ISE的impact工具来用，发现还是没法扫链：<br><code>WARNING:iMPACT:923 - Can not find cable, check cable setup !</code><br><img src="image04.png" alt="报错信息"></p><hr><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>根据问题现象，判断问题应该是出在驱动。于是重新安装Vivado2015.4的驱动。</p><p>进入Vivado2015.4的安装路径下：<br><code>D:\Xilinx\Vivado\2015.4\data\xicom\cable_drivers\nt64</code></p><p>以管理员身份运行驱动安装程序：<br><img src="image05.png" alt="安装驱动"></p><p>重新安装驱动以后，再次插上DLC9下载器，灯初始状态就正常了，然后打开Vivado的Hardware Manager，也可以成功扫到器件了。<br><img src="image06.png" alt="扫链成功"></p><h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p>在安装多个版本Vivado的场景下，如若下载器驱动出现问题，重新安装相应版本的驱动即可，特别注意的是：<br><font color=#DC143C>重新安装驱动时，一定要用系统管理员方式安装！！！</font></p><hr>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;这是文章的摘要&lt;/p&gt;
+      
+      
+        &lt;p&gt;Win10系统下，安装多个版本Vivado后，Xilinx DLC9驱动不识别问题。&lt;/p&gt;
+&lt;h2 id=&quot;问题背景&quot;&gt;&lt;a href=&quot;#问题背景&quot; class=&quot;headerlink&quot; title=&quot;问题背景&quot;&gt;&lt;/a&gt;问题背景&lt;/h2&gt;&lt;p&gt;刚开始，电脑上安装了Vi
+      
     
     </summary>
     
     
     
-      <category term="Markdown" scheme="http://cdutcl.xyz/tags/Markdown/"/>
+      <category term="xilinx" scheme="http://cdutcl.xyz/tags/xilinx/"/>
     
-      <category term="Hexo" scheme="http://cdutcl.xyz/tags/Hexo/"/>
+      <category term="driver" scheme="http://cdutcl.xyz/tags/driver/"/>
+    
+      <category term="fpga" scheme="http://cdutcl.xyz/tags/fpga/"/>
+    
+      <category term="驱动" scheme="http://cdutcl.xyz/tags/%E9%A9%B1%E5%8A%A8/"/>
     
   </entry>
   
